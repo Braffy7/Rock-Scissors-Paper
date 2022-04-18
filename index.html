@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="pl-PL" xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Kamień Papier Nożyce</title>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <div class="bg">
+            <img src="animation-rock.png" alt="falling rock" class="bg_rock">
+            <img src="animation-scissors.png" alt="falling scissors" class="bg_scissors">
+            <img src="animation-plane.png" alt="falling rock" class="bg_paper">
+        </div>
+        <div class="container">
+            <section>
+                <h1 class="container_header">Kamień Papier Nożyce</h1>
+            </section>
+            <section class="page_moves">
+                <h2 class="conatiner_choose">Wybierz swój ruch</h2>
+                <div class="container_buttons">
+                    <button id="rock"></button>
+                    <button id="paper"></button>
+                    <button id="scissors"></button>
+                </div>
+            </section>
+            <section class="page_results none">
+                <div class="results">
+                    <div class="container_moves">
+                        <div>Gracz</div>
+                        <div>Komputer</div>
+                    </div>
+                    <div class="container_versus">
+                        <div id="players-move"></div>
+                        <div id="computers-move"></div>
+                    </div>
+                    <div id="container_result"></div>
+                    <button id="container_results_restart">Zagraj ponownie</button>
+                </div>
+            </section>
+        </div>
+        <script src="./functions.js">
+        </script>
+        <script src="/script.js">
+        </script>
+    </body>

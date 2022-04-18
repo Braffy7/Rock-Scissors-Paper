@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;800&family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+* {
+    color: white;
+}
+body {
+    height: 100vh;
+    background: linear-gradient(to right top, #c5c5c5, #000000);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.results {
+    margin: 2vh 0;
+}
+.container {
+    background-color: rgba(252, 252, 252, 0.2);
+    width: 65vw;
+    border-radius: 50px;
+    border: 0.5vh solid black;
+    min-height: 53vh;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2;
+}
+.container_header {
+    text-align: center;
+    font-size: 6vh;
+    font-family: Fira Sans;
+    background: none;
+}
+.conatiner_choose {
+    text-align: center;
+    font-size: 4vh;
+}
+
+/* Styles Choose */
+
+.container_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5vw;
+    margin-bottom: 5vh;
+}
+#rock {
+    background: url(rock.png);
+    background-size: 12vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.5vh solid black;
+    width: 15vh;
+    height: 15vh;
+}
+#rock:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+#scissors {
+    background: url(scissors.png);
+    background-size: 12vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.5vh solid black;
+    width: 15vh;
+    height: 15vh;
+}
+#scissors:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+#paper {
+    background: url(paper.png);
+    background-size: 12vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.5vh solid black;
+    width: 15vh;
+    height: 15vh;
+}
+#paper:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+/* Styles result */
+
+.container_versus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 17vw;
+    position: relative;
+}
+.container_versus_rock {
+    background: url(rock.png);
+    background-size: 12vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.5vh solid black;
+    width: 15vh;
+    height: 15vh;
+}
+.container_versus_scissors {
+    background: url(scissors.png);
+    background-size: 12vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.5vh solid black;
+    width: 15vh;
+    height: 15vh;
+}
+.container_versus_paper {
+    background: url(paper.png);
+    background-size: 12vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.5vh solid black;
+    width: 15vh;
+    height: 15vh;
+}
+.container_moves {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 18vw;
+    font-size: 4vh;
+    font-weight: 700;
+    margin-left: 2vw;
+    margin-bottom: 1vh;
+}
+#container_result {
+    text-align: center;
+    font-size: 5vh;
+    margin-top: 1vh;
+}
+
+/* Styles animations and JS*/
+
+.none {
+    display: none;
+}
+#container_results_restart {
+    display: block;
+    margin: 0 auto;
+    margin-top: 2vh;
+    background-color: rgba(141, 137, 137, 0.5);
+    height: 5vh;
+    font-size: 3vh;
+    font-weight: 700;
+    border: 0.5vh solid black;
+}
+#container_results_restart:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+.container_moves, #container_result, #container_results_restart {
+    opacity: 0;
+    animation: FadeIN 0.4s linear;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+.container_versus::after {
+    content:"vs";
+    position: absolute;
+    font-size: 8vh;
+    font-weight: 500;
+    animation: counting 3s linear;
+}
+#players-move {
+    animation: slideLeft 0.4s ease-in;
+    animation-delay: 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+#computers-move {
+    animation: slideRight 0.4s ease-in;
+    animation-delay: 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Background Styles */
+
+.bg_rock {
+    position: absolute;
+    width: 15vw;
+    height: auto;
+    right: 10vw;
+    top: -35vh;
+    z-index: 1;
+    animation: FallingRock 12s linear infinite;
+}
+.bg_scissors {
+    position: absolute;
+    width: 25vw;
+    height: auto;
+    top: -60vh;
+    left: 17vh;
+    z-index: 1;
+    animation: FallingScissors 16s linear infinite;
+}
+.bg_paper {
+    position: absolute;
+    width: 20vw;
+    height: auto;
+    top: 80vh;
+    left: -45vh;
+    z-index: 1;
+    animation: FallingPaper 14s linear infinite;
+}
+
+
+/* Background animations */
+
+@keyframes FallingPaper {
+    0% {   
+    }
+    20% {
+        top: -40vh;
+        left: 70vw;
+        width: 8vw
+    }
+    100% {
+        top: -40vh;
+        left: 70vw;
+    }
+}
+
+@keyframes FallingRock {
+    0% {
+        top: -35vh;
+        right: -20vw;
+    }
+    25% {
+        top: 110vh;
+        right: 75vw;
+    }
+    36% {
+        top: 110vh;
+        right: 800vw;
+    }
+    37% {
+        top: -30vh;
+        right: 400vw;
+    }
+    50% {
+        top: -35vh;
+        right: 5vw;
+        width: 10vw;
+    }
+    65% {
+        top: 110vh;
+        right: 110vw;
+    }
+    100% {
+        top: 110vh;
+        right: 110vw;
+    }
+}
+
+@keyframes FallingScissors {
+    0% {
+    }
+    80% {
+        transform: rotate(180deg);
+        top: 130vh;
+    }
+    100% {
+        top: 130vh;
+    }
+}
+
+/* Game Animations */
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-300%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(300%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes counting {
+    0% {
+        content: "3";
+    }
+    33% {
+        content: "2";
+    }
+    66% {
+        content: "1";
+    }
+    100% {
+        content: "vs";
+    }
+}
+
+@keyframes FadeIN {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100vw;
+        height: 70vh;
+    }
+    #container_results_restart {
+        height: 8vh;
+    }
+    .container_moves {
+        margin-left: 4vh;
+        column-gap: 20vw;
+    }
+}
+ 
