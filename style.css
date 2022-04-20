@@ -346,5 +346,36 @@ body {
         margin-left: 4vh;
         column-gap: 20vw;
     }
+    .bg_rock {
+        position: absolute;
+        width: 15vw;
+        height: auto;
+        right: 10vw;
+        top: -35vh;
+        z-index: 1;
+        animation: none;
+    }
+
+    @keyframes slideLeft {
+        from {
+            opacity: 0;
+            transform: translateY(-300%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideRight {
+        from {
+            opacity: 0;
+            transform: translateY(300%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 }
  
